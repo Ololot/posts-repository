@@ -14,7 +14,7 @@ const createPath = require('./helpers/create-path');
 // const successMsg = chalk.bgKeyword('green').white;
 
 const app = express();
-
+console.log("INSIDE")
 app.set('view engine', 'ejs');
 
 mongoose
@@ -33,7 +33,7 @@ app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
 app.use(express.static('styles'));
 
 app.use(methodOverride('_method'));
-
+console.log("INSIDE2")
 app.get('/', (req, res) => {
   const title = 'Home';
   res.render(createPath('index'), { title });
@@ -42,7 +42,7 @@ app.get('/', (req, res) => {
 app.use(postRoutes);
 app.use(contactRoutes);
 app.use(postApiRoutes);
-
+console.log("INSIDE3")
 app.use((req, res) => {
   const title = 'Error Page';
   res
